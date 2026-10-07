@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --muted: #c4c7c8;
+  --accent: #f97316;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --font-bricolageGrotesque: var(--font-bricolage-grotesque);
+  --font-plusJakartaSans: var(--font-plus-jakarta-sans);
+  --font-poppins: var(--font-poppins);
+  --font-hankenGrotesk: var(--font-hanken-grotesk);
+  --font-geist: var(--font-geist);
+  --font-inter: var(--font-inter);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow-x: clip;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(249, 115, 22, 0.35);
+  color: #ffffff;
+}
+
+@keyframes logo-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.logo-marquee-track {
+  animation: logo-marquee 56s linear infinite;
+}
+
+.logo-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee-track {
+    animation: none;
+  }
+}
+
+/* --- How it Works: the pinned crossfade is an enhancement -------------------
+   useStepsScroll shows one step at a time, which is only honest while GSAP is
+   actually driving it. So the hidden state lives behind [data-steps-animated],
+   which the inline script in app/layout.tsx sets before first paint iff
+   scripting is on AND the user has not asked for reduced motion. Everyone else
+   — reduced-motion users, a JS failure, and any crawler reading the HTML
+   without running scripts — gets all five steps in normal flow, fully opaque.
+
+   Before this, steps 2-5 were opacity:0 in the server HTML, then
+   visibility:hidden once GSAP's autoAlpha ran, and under reduced motion the
+   timeline was never built so they were never revealed at all.
+
+   These rules OVERRIDE the classes in the JSX rather than replacing them, so
+   the animated presentation stays the single source of truth. Rules declared
+   here are unlayered and therefore beat Tailwind utilities regardless of
+   specificity — the same mechanism .logo-marquee-track relies on. */
+
+html[data-steps-animated] .steps-panel:not(:first-child),
+html[data-steps-animated] .steps-image-layer:not(:first-child) {
+  opacity: 0;
+}
+
+/* Panels are stacked absolutely for the crossfade; plain opacity:0 (unlike the
+   visibility:hidden this replaced) still hit-tests, so an invisible panel on
+   top would swallow text selection from the visible one. */
+html[data-steps-animated] .steps-panel:not(:first-child) {
+  pointer-events: none;
+}
+
+/* The static baseline. */
+html:not([data-steps-animated]) .steps-section {
+  padding-block: 5rem;
+}
+html:not([data-steps-animated]) .steps-pin-target {
+  height: auto;
+}
+html:not([data-steps-animated]) .steps-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+/* Neutralises `absolute inset-0` and `h-full`, putting the panels back in flow
+   so they stack instead of overlapping. */
+html:not([data-steps-animated]) .steps-panel {
+  position: static;
+  height: auto;
+}
+/* The layers keep `absolute inset-0` in the JSX so <Image fill> always has a
+   sized containing block; hiding all but the first stops five photos stacking
+   inside one aspect-3/2 frame. */
+html:not([data-steps-animated]) .steps-image-layer:not(:first-child) {
+  display: none;
+}
+/* h-40 with overflow-hidden fits about two of the five eyebrows, so the rail
+   has to be un-clipped or the rest are invisible in a static layout. */
+html:not([data-steps-animated]) .steps-rail {
+  height: auto;
+  overflow: visible;
+}
+html:not([data-steps-animated]) .steps-rail-fade {
+  display: none;
+}
+html:not([data-steps-animated]) .steps-rail-track {
+  position: static;
+  transform: none;
+}
+/* Easy to miss and the reason restoring opacity alone is not enough: the
+   inactive colour is #404040 on black, about 1.9:1. Without this the four
+   "revealed" step numbers are unreadable. In a static list none of them is
+   active, so they all take the readable body colour. */
+html:not([data-steps-animated]) .steps-eyebrow {
+  color: #a1a1a1;
+}
+
+/* html { scroll-behavior: smooth } above is unconditional, so every in-page
+   jump animates even for users who explicitly asked for no motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

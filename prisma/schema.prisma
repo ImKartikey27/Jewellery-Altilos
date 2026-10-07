@@ -1,0 +1,140 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Customer {
+  id                String  @id @default(cuid())
+  email             String  @unique
+  name              String?
+  company           String?
+  mobileNumber      String?
+  stripeCustomerId  String?
+  pipedrivePersonId String?
+
+  orders                Order[]
+  onboardingSubmissions OnboardingSubmission[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Order {
+  id                    String      @id @default(cuid())
+  customerId            String?
+  customer              Customer?    @relation(fields: [customerId], references: [id])
+  plan                  String // "pulse | core | core+ | expert"
+  stripePaymentIntentId String?     @unique
+  stripeSessionId       String?     @unique
+  // Minor units of `currency`: paise for INR, cents for legacy USD orders.
+  // Written with the base plan amount at checkout-session creation, then
+  // reconciled against the session's real amount_total (which includes any
+  // add-ons the customer chose) in finalizePaidCheckoutSession.
+  amountCents           Int
+  currency              String      @default("inr")
+  // Add-on breakdown captured at payment. Null means never reconciled, which is
+  // meaningfully different from reconciled-with-no-add-ons. See addon-reconcile.ts.
+  addOns                Json?
+  status                OrderStatus @default(PENDING)
+  pipedriveDealId       Int?
+  onboardingEmailSentAt DateTime?
+  onboardingEmailError  String?
+
+  onboardingAccessTokens OnboardingAccessToken[]
+  onboardingSubmission   OnboardingSubmission?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([customerId])
+  @@index([status])
+}
+
+model OnboardingAccessToken {
+  id        String                    @id @default(cuid())
+  orderId   String
+  order     Order                     @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  tokenHash String                    @unique
+  delivery  OnboardingTokenDelivery
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime                  @default(now())
+
+  @@index([orderId])
+  @@index([expiresAt])
+}
+
+model OnboardingSubmission {
+  id                 String    @id @default(cuid())
+  orderId            String    @unique
+  order              Order     @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  customerId         String
+  customer           Customer  @relation(fields: [customerId], references: [id])
+  fullName           String
+  workEmail          String
+  jobTitle           String
+  companyName        String
+  companyWebsite     String?
+  phoneNumber        String?
+  researchBrief      Json
+  termsAccepted      Boolean
+  payload            Json
+  pipedriveSyncedAt  DateTime?
+  pipedriveSyncError String?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  @@index([customerId])
+}
+
+enum OnboardingTokenDelivery {
+  CONFIRMATION_CTA
+  EMAIL
+}
+
+enum OrderStatus {
+  PENDING
+  PROCESSING
+  PAID
+  FAILED
+  REFUNDED
+  EXPIRED
+}
+
+model Lead {
+  id                 String    @id @default(cuid())
+  email              String    @unique
+  name               String?
+  companyName        String?
+  source             String    @default("email-gate")
+  pipedrivePersonId  Int?
+  pipedriveSyncedAt  DateTime?
+  pipedriveSyncError String?
+  reportSentAt       DateTime?
+  reportSendError    String?
+  payload            Json
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  @@index([createdAt])
+}
+
+model WebhookEvent {
+  id              String    @id
+  type            String
+  receivedAt      DateTime  @default(now())
+  processedAt     DateTime?
+  payload         Json
+  processingError String?
+
+  @@index([type])
+}
