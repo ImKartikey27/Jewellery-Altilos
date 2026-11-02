@@ -14,18 +14,6 @@ export const jewelleryMetrics = [
   { label: "Zero-party", value: "100%", body: "First-hand. None scraped or modelled." },
 ];
 
-export const jewelleryHeroCard = {
-  title: "Would you choose lab-grown over natural diamonds?",
-  rows: [
-    { label: "Maybe", value: "48%" },
-    { label: "A firm yes", value: "16%" },
-    { label: "Top barrier: low resale value", value: "74.6%" },
-  ],
-  footer: "Altilos zero-party study, n=2,625",
-};
-
-// The four findings of the free study, shown inside step 4 (patterns) and step 5 (report).
-
 export const jewellerySteps = [
   {
     eyebrow: "STEP 01",
