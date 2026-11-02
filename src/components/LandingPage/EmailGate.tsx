@@ -20,7 +20,7 @@ export function EmailGate() {
     setConfirmation("");
 
     if (!isValidEmail(email)) {
-      setError("Enter a valid email address.");
+      setError("Please use your work email so we can send the study.");
       return;
     }
 
@@ -32,11 +32,11 @@ export function EmailGate() {
     setModalOpen(false);
     if (state.status === "already_submitted") {
       setConfirmation(
-        "You've already requested this report — check your inbox or contact support."
+        "You\u2019ve already requested the study. Check your inbox, and your spam folder, or contact info@altilos.com."
       );
     } else {
       setConfirmation(
-        `Thank you. We've sent your free market report to ${email}.`
+        `The study is on its way. We\u2019ve emailed the study to ${email} as a PDF. Check your inbox in a few minutes, and your spam folder if it isn\u2019t there.`
       );
     }
   }
@@ -71,14 +71,15 @@ export function EmailGate() {
             id="email-gate-title"
             className="text-3xl sm:text-4xl  font-plusJakartaSans leading-[39px] text-white"
           >
-           Real consumer voice.
-            <br />
-            Expert-validated intelligence.
-            <br />
-            Decisions that move revenue.
+           Get the India Jewellery Consumer Landscape Study 2026.
           </h2>
-          <p className="mt-2 max-w-[456px]  font-inter text-base leading-[26px] text-white">
-            Enter your preferred email to begin the onboarding process.
+          <p className="mt-4 max-w-[456px]  font-inter text-base leading-[26px] text-white">
+            Six pages. 2,625 buyers. Every chart, every cut by generation and
+            age band, and the methodology behind them. Free. No pitch. No card
+            details.
+          </p>
+          <p className="mt-3 font-inter text-sm font-semibold text-[#F97316]">
+            2,625 verified buyers across 180 cities and towns
           </p>
         </div>
 
@@ -86,7 +87,7 @@ export function EmailGate() {
           <div className="flex flex-col gap-3 sm:flex-row sm:gap-3">
             <div className="min-w-0 flex-1">
               <label className="sr-only" htmlFor={inputId}>
-                Preferred email
+                Work email
               </label>
               <input
                 id={inputId}
@@ -97,7 +98,7 @@ export function EmailGate() {
                   if (error) setError("");
                   if (confirmation) setConfirmation("");
                 }}
-                placeholder="name@enterprise.com"
+                placeholder="name@brand.com"
                 aria-invalid={error ? "true" : "false"}
                 aria-describedby={
                   error || confirmation ? `${inputId}-message` : undefined
@@ -109,7 +110,7 @@ export function EmailGate() {
               type="submit"
               className="group inline-flex h-[55px] items-center justify-center gap-3 rounded-full bg-[#f97316] border-2 border-[#f97316] px-7 text-sm font-semibold uppercase tracking-[0.08em] text-white transition-colors duration-200 hover:bg-black focus:outline-none focus:ring-4 focus:ring-[#f97316]/30"
             >
-              <span className="font-inter">Submit</span>
+              <span className="font-inter">Send me the study</span>
               <FaArrowRight className="group-hover:-rotate-45 w-4 " />
             </button>
           </div>

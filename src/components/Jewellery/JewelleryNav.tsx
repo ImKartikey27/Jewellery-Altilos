@@ -22,7 +22,7 @@ export function JewelleryNav() {
           ))}
         </div>
         <a
-          href="#snapshot"
+          href="#email-gate"
           className="whitespace-nowrap rounded-full bg-[#F39019] px-5 py-2.5 font-inter text-sm font-medium text-white hover:bg-[#FFA033]"
         >
           Get the free study

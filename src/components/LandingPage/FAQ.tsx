@@ -13,7 +13,7 @@ export function FAQ() {
           id="faqs-title"
           className=" text-4xl sm:text-[40px] font-plusJakartaSans leading-tight text-white "
         >
-          Frequently asked questions about Indian skincare consumer research
+          Frequently asked questions about Indian jewellery consumer research
         </h2>
         <div className="mt-6 flex flex-col gap-2">
           {faqs.map((faq) => (

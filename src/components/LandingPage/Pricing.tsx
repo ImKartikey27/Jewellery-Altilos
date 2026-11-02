@@ -86,18 +86,17 @@ export function Pricing() {
             id="plans-title"
             className="max-w-5xl text-4xl font-plusJakartaSans leading-tight text-white sm:text-[40px]"
           >
-           Get a <span className="font-bold">free snapshot</span> of{" "}
-           <span className="font-bold">real</span> consumer{" "}
-           <span className="font-bold">behaviour</span> in{" "}
-           <span className="font-bold">your category</span>.{" "}
-           No pitch. No card details
+           Want the study cut to your{" "}
+           <span className="font-bold">brand</span>, your{" "}
+           <span className="font-bold">competitors</span> and your{" "}
+           <span className="font-bold">cities</span>?
           </h2>
           <p className="mt-10 max-w-2xl text-[16px] font-poppins text-lg leading-tight text-[#a1a1a1]/80">
-            Start with a rapid report, then scale into deeper market coverage as
-            your team moves from curiosity to conviction.
+            Pick your depth. Each study is one-time, built from your target
+            consumers and your named competitors.
           </p>
           <div className="mt-10">
-            <PrimaryButton>Get Free Market report</PrimaryButton>
+            <PrimaryButton>Get the free study</PrimaryButton>
           </div>
         </div>
 
