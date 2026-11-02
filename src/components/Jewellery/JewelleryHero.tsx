@@ -3,13 +3,8 @@ import Image from "next/image";
 const CTA =
   "inline-flex items-center gap-3.5 rounded-full bg-[#F39019] px-8 py-[19px] font-inter text-sm font-semibold uppercase tracking-[0.12em] text-white hover:bg-[#FFA033]";
 
-// The portrait has no black margin, so mask its edges into the page. The top ramp is kept short so her hair
-// is not darkened; the sides and bottom carry the longer fades. The layers are intersected.
-const PHOTO_MASK = [
-  "linear-gradient(to bottom, transparent 0%, #000 9%)",
-  "linear-gradient(to top, transparent 0%, transparent 2%, #000 26%)",
-  "linear-gradient(to right, transparent 0%, #000 22%, #000 90%, transparent 100%)",
-].join(", ");
+// The new portrait has pure black margins on the top and sides; only the cropped torso at the bottom needs a fade.
+const PHOTO_MASK = "linear-gradient(to top, transparent 0%, transparent 2%, #000 24%)";
 
 export function JewelleryHero() {
   return (
@@ -42,17 +37,17 @@ export function JewelleryHero() {
 
       {/* Photo: in flow below the copy on mobile, anchored bottom-right on desktop and sized by height so it can
           never outgrow the band. The stat strip sits below it. */}
-      <div className="relative mt-6 h-[340px] w-full overflow-hidden sm:h-[440px] lg:absolute lg:-right-32 lg:bottom-0 lg:mt-0 lg:aspect-[1344/672] lg:h-[84%] lg:w-auto">
+      <div className="relative mt-6 h-[340px] w-full overflow-hidden sm:h-[440px] lg:absolute lg:-right-[27%] lg:bottom-0 lg:mt-0 lg:aspect-[1826/913] lg:h-[96%] lg:w-auto">
         <Image
-          src="/images/hero/jewellery-hero-v2.webp"
+          src="/images/hero/jewellery-hero-v3.webp"
           alt="A smiling Indian woman touching her diamond pendant, also wearing diamond stud earrings, a ring and a tennis bracelet, lit by a warm orange glow"
-          width={1344}
-          height={672}
+          width={1826}
+          height={913}
           loading="eager"
           fetchPriority="high"
           sizes="(min-width: 1024px) 1440px, 100vw"
-          className="absolute left-1/2 h-full w-auto max-w-none -translate-x-[58%] lg:relative lg:left-auto lg:w-full lg:translate-x-0 lg:object-cover"
-          style={{ maskImage: PHOTO_MASK, WebkitMaskImage: PHOTO_MASK, maskComposite: "intersect", WebkitMaskComposite: "source-in" }}
+          className="absolute left-1/2 h-full w-auto max-w-none -translate-x-[52%] lg:relative lg:left-auto lg:w-full lg:translate-x-0 lg:object-cover"
+          style={{ maskImage: PHOTO_MASK, WebkitMaskImage: PHOTO_MASK }}
         />
       </div>
       </div>
