@@ -129,7 +129,7 @@ export const env = {
         return optionalEnv("LEAD_MAGNET_FILE_PATH") ?? "public/lead-magnet.pdf"
     },
     get LEAD_MAGNET_FILE_NAME() {
-        return optionalEnv("LEAD_MAGNET_FILE_NAME") ?? "Altilos-India-Skincare-CLS-FY26.pdf"
+        return optionalEnv("LEAD_MAGNET_FILE_NAME") ?? "Altilos-India-Jewellery-CLS-FY26.pdf"
     },
     get LEAD_MAGNET_FILE_TYPE() {
         return optionalEnv("LEAD_MAGNET_FILE_TYPE") ?? "application/pdf"
