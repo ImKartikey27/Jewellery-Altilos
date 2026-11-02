@@ -37,7 +37,7 @@ export function JewelleryHero() {
 
       {/* Photo: in flow below the copy on mobile, anchored bottom-right on desktop and sized by height so it can
           never outgrow the band. The stat strip sits below it. */}
-      <div className="relative mt-6 h-[340px] w-full overflow-hidden sm:h-[440px] lg:absolute lg:-right-[27%] lg:bottom-0 lg:mt-0 lg:aspect-[1826/913] lg:h-[96%] lg:w-auto">
+      <div className="relative mt-6 h-[340px] w-full overflow-hidden sm:h-[440px] lg:absolute lg:-right-[24%] lg:bottom-[7%] lg:mt-0 lg:aspect-[1826/913] lg:h-[96%] lg:w-auto">
         <Image
           src="/images/hero/jewellery-hero-v3.webp"
           alt="A smiling Indian woman touching her diamond pendant, also wearing diamond stud earrings, a ring and a tennis bracelet, lit by a warm orange glow"
