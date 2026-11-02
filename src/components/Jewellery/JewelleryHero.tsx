@@ -38,35 +38,42 @@ export function JewelleryHero() {
       </div>
 
       {/* Photo: in flow below the copy on mobile, anchored bottom-right on desktop and sized by height so it can
-          never outgrow the band. The stat card overlaps its lower edge. */}
-      <div className="relative mt-6 h-[340px] w-full overflow-hidden sm:h-[440px] lg:absolute lg:-right-10 lg:bottom-0 lg:mt-0 lg:aspect-[1756/896] lg:h-[80%] lg:w-auto">
+          never outgrow the band. The stat strip sits below it. */}
+      <div className="relative mt-6 h-[340px] w-full overflow-hidden sm:h-[440px] lg:absolute lg:-right-10 lg:bottom-0 lg:mt-0 lg:aspect-[1344/672] lg:h-[80%] lg:w-auto">
         <Image
-          src="/images/hero/jewellery-hero.webp"
-          alt="A smiling Indian woman wearing lab-grown diamond earrings, rings, a pendant and a bracelet, lit by an orange glow"
-          width={1756}
-          height={896}
+          src="/images/hero/jewellery-hero-v2.webp"
+          alt="A smiling Indian woman touching her diamond pendant, also wearing diamond stud earrings, a ring and a tennis bracelet, lit by a warm orange glow"
+          width={1344}
+          height={672}
           loading="eager"
           fetchPriority="high"
           sizes="(min-width: 1024px) 1440px, 100vw"
-          className="absolute left-1/2 h-full w-auto max-w-none -translate-x-[64%] lg:relative lg:left-auto lg:w-full lg:translate-x-0 lg:object-cover"
+          className="absolute left-1/2 h-full w-auto max-w-none -translate-x-[58%] lg:relative lg:left-auto lg:w-full lg:translate-x-0 lg:object-cover"
         />
         <div aria-hidden="true" className={`pointer-events-none absolute inset-x-0 bottom-0 h-[40%] lg:hidden ${FADE}`} />
+        {/* The portrait has no black margin at the top or left, so dissolve both edges into the page. */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-[22%] bg-[linear-gradient(to_bottom,#000_0%,rgba(0,0,0,0.6)_45%,transparent_100%)]" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 hidden w-[24%] bg-[linear-gradient(to_right,#000_0%,rgba(0,0,0,0.6)_45%,transparent_100%)] lg:block" />
       </div>
       <div aria-hidden="true" className={`pointer-events-none absolute inset-x-0 bottom-0 hidden h-[16%] lg:block ${FADE}`} />
 
-      <figure className="relative z-10 mx-auto mt-2 w-[calc(100%-3rem)] max-w-[420px] rounded-[24px] border border-white/20 bg-[linear-gradient(160deg,rgba(24,24,24,.94),rgba(8,8,8,.97))] p-5 shadow-[0_30px_80px_rgba(0,0,0,0.6)] backdrop-blur-sm lg:absolute lg:bottom-5 lg:right-[2%] lg:mt-0 lg:w-[300px] lg:max-w-none">
-        <figcaption className="font-plusJakartaSans text-[16px] font-medium leading-snug tracking-[-0.01em]">{jewelleryHeroCard.title}</figcaption>
-        <dl className="mt-3 flex flex-col gap-2.5">
+      </div>
+
+      {/* Stat strip: below the photo, never over it. Stacks on mobile, one row on desktop. */}
+      <figure className="relative z-10 mx-auto mt-10 w-[calc(100%-3rem)] max-w-[1040px] rounded-[24px] border border-white/20 bg-[linear-gradient(160deg,rgba(24,24,24,.94),rgba(8,8,8,.97))] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.5)] lg:-mt-6 lg:flex lg:items-center lg:gap-10 lg:px-9 lg:py-7">
+        <figcaption className="font-plusJakartaSans text-[20px] font-medium leading-snug tracking-[-0.01em] lg:w-[260px] lg:flex-none">
+          {jewelleryHeroCard.title}
+          <span className="mt-2 block font-inter text-[11px] font-normal tracking-normal text-[#8a8a8a]">{jewelleryHeroCard.footer}</span>
+        </figcaption>
+        <dl className="mt-5 grid gap-5 sm:grid-cols-3 lg:mt-0 lg:flex-1">
           {jewelleryHeroCard.rows.map((r) => (
-            <div key={r.label} className="flex items-baseline justify-between gap-4 border-b border-white/[0.08] pb-2.5 last:border-b-0 last:pb-0">
-              <dt className="font-inter text-[13px] text-[#cfcfcf]">{r.label}</dt>
-              <dd className="font-plusJakartaSans text-[22px] font-bold text-[#F39019]">{r.value}</dd>
+            <div key={r.label} className="flex items-baseline justify-between gap-3 border-b border-white/[0.08] pb-4 last:border-b-0 last:pb-0 sm:flex-col sm:items-start sm:gap-1 sm:border-b-0 sm:border-l sm:pb-0 sm:pl-6 sm:first:border-l-0 sm:first:pl-0 lg:first:border-l lg:first:pl-6">
+              <dd className="order-2 font-plusJakartaSans text-[32px] font-bold leading-none text-[#F39019] sm:order-1">{r.value}</dd>
+              <dt className="order-1 font-inter text-[13px] leading-snug text-[#cfcfcf] sm:order-2">{r.label}</dt>
             </div>
           ))}
         </dl>
-        <p className="mt-2.5 font-inter text-[10px] text-[#8a8a8a]">{jewelleryHeroCard.footer}</p>
       </figure>
-      </div>
 
       <dl className="relative mx-auto mt-16 grid max-w-[1240px] gap-10 px-6 text-center sm:grid-cols-[repeat(auto-fit,minmax(240px,1fr))] lg:mt-20">
         {jewelleryMetrics.map((m) => (
