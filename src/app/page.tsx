@@ -4,7 +4,7 @@ import { EmailGate } from "@/components/LandingPage/EmailGate";
 import { FAQ } from "@/components/LandingPage/FAQ";
 import { Footer } from "@/components/LandingPage/Footer";
 import { Pricing } from "@/components/LandingPage/Pricing";
-import { LogoRow } from "@/components/LandingPage/SocialProof";
+import { Benchmarks, LogoRow } from "@/components/LandingPage/SocialProof";
 import { Steps } from "@/components/LandingPage/Steps/Steps";
 import { JewelleryHero } from "@/components/Jewellery/JewelleryHero";
 import { JewelleryNav } from "@/components/Jewellery/JewelleryNav";
@@ -22,6 +22,7 @@ export default function Home() {
       <main className="min-h-screen bg-black text-white">
         <JewelleryNav />
         <JewelleryHero />
+        <Benchmarks />
         <LogoRow />
         <Steps />
         <EmailGate />

@@ -1,6 +1,6 @@
 import { formatMinor } from "./money.ts";
 import type { SectionId } from "./section-anchors.ts";
-import { jewelleryFaqs, jewellerySteps } from "./jewellery/content.ts";
+import { jewelleryFaqs, jewelleryMetrics, jewellerySteps } from "./jewellery/content.ts";
 import { PLAN_PRICING, type PlanKey } from "./plans.ts";
 
 export type NavLink = {
@@ -86,23 +86,7 @@ export const navLinks: SectionLink[] = [
   { label: "FAQs", to: "faqs" },
 ];
 
-export const metrics: Metric[] = [
-  {
-    value: "6x Faster",
-    label: "Decision Velocity",
-    body: "Decisions that used to take months\nenabled in days.",
-  },
-  {
-    value: "90% Savings",
-    label: "Research Spend",
-    body: "Versus traditional research agencies.",
-  },
-  {
-    value: "100% Actionable",
-    label: "Intelligence",
-    body: "No data dumps.\nOnly intelligence that moves the needle.",
-  },
-];
+export const metrics: Metric[] = jewelleryMetrics;
 
 export const partnerLogos: PartnerLogo[] = [
   { name: "Airbnb", image: "/images/logos/airbnb.png" },
