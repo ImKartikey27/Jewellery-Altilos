@@ -14,6 +14,7 @@ import {
 type LeadMagnetModalProps = {
   open: boolean;
   defaultEmail: string;
+  category?: string;
   onClose: () => void;
   onSuccess?: (state: LeadMagnetActionState) => void;
 };
@@ -23,6 +24,7 @@ const initialState: LeadMagnetActionState = { status: "idle" };
 export function LeadMagnetModal({
   open,
   defaultEmail,
+  category = "",
   onClose,
   onSuccess,
 }: LeadMagnetModalProps) {
@@ -101,10 +103,10 @@ export function LeadMagnetModal({
               id="lead-magnet-title"
               className="font-hankenGrotesk text-2xl leading-none text-[#E2E2E2]"
             >
-              Get Your Free Market Report
+              Get the free study
             </h2>
             <p className="mt-2 font-poppins text-sm tracking-[0.08em] text-[#DEC1B0]">
-              ALTILOS Enterprise Intelligence
+              India Jewellery Consumer Landscape Study 2026
             </p>
           </div>
           <button
@@ -118,6 +120,7 @@ export function LeadMagnetModal({
         </header>
 
         <form action={formAction} className="px-6 pb-0 pt-6">
+          <input type="hidden" name="category" value={category} />
           {errorMessage && (
             <p
               className="mb-6 text-sm text-[#fb861c]"
@@ -130,21 +133,21 @@ export function LeadMagnetModal({
           <div className="space-y-6">
             <label className="block">
               <span className="font-poppins text-sm font-medium tracking-wide text-[#DEC1B0]">
-                Best Email for your report <span aria-hidden="true">*</span>
+                Work email <span aria-hidden="true">*</span>
               </span>
               <input
                 type="email"
                 name="email"
                 required
                 defaultValue={defaultEmail}
-                placeholder="name@enterprise.com"
+                placeholder="name@brand.com"
                 className="mt-3 h-[49px] w-full rounded-lg border border-[#574236CC] bg-[#1F1F1F] px-4 font-inter text-base text-white outline-none transition placeholder:text-[#3C3C3C] focus:border-[#f97316] focus:ring-4 focus:ring-[#f97316]/20"
               />
             </label>
 
             <label className="block">
               <span className="font-poppins text-sm font-medium tracking-wide text-[#DEC1B0]">
-                Company Name <span aria-hidden="true">*</span>
+                Brand or company <span aria-hidden="true">*</span>
               </span>
               <input
                 type="text"
@@ -152,7 +155,7 @@ export function LeadMagnetModal({
                 required
                 pattern=".*\S.*"
                 title="Company name cannot be empty."
-                placeholder="Acme Inc."
+                placeholder="Your brand"
                 className="mt-3 h-[49px] w-full rounded-lg border border-[#574236CC] bg-[#1F1F1F] px-4 font-inter text-base text-white outline-none transition placeholder:text-[#3C3C3C] focus:border-[#f97316] focus:ring-4 focus:ring-[#f97316]/20"
               />
             </label>
@@ -177,7 +180,7 @@ function SubmitButton() {
       className="group inline-flex h-[55px] w-[263px] items-center justify-center gap-3 rounded-full bg-[#f97316] text-sm font-semibold uppercase tracking-[0.08em] text-white shadow-[0_4px_10px_0_rgba(249,115,22,0.25)] transition-colors duration-200 hover:bg-black focus:outline-none focus:ring-4 focus:ring-[#f97316]/30 disabled:cursor-not-allowed disabled:opacity-60"
     >
       <span className="font-inter">
-        {pending ? "Sending…" : "Get Free Market report"}
+        {pending ? "Sending…" : "Send me the study"}
       </span>
       {!pending && (
         <FaArrowRight className="w-4 transition-transform group-hover:-rotate-45" />

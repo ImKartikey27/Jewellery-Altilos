@@ -25,7 +25,7 @@ export function JewelleryNav() {
           href="#snapshot"
           className="whitespace-nowrap rounded-full bg-[#F39019] px-5 py-2.5 font-inter text-sm font-medium text-white hover:bg-[#FFA033]"
         >
-          Get free snapshot
+          Get the free study
         </a>
       </nav>
     </header>

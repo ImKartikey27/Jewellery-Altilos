@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import {
-  JEWELLERY_BANDS,
+  jewelleryStepsIntro,
   jewellerySteps,
   stepActions,
   stepAudFeats,
@@ -26,6 +26,13 @@ const pill = "rounded-full border border-[#F39019] px-[9px] py-[3px] font-inter 
 const cardBase = "flex flex-col overflow-hidden rounded-[32px] border border-white/20 p-7";
 const hd = "font-plusJakartaSans text-[22px] font-medium";
 
+const WEIGHED = [
+  { k: "Brand heritage", v: 77 },
+  { k: "Jeweller relationship", v: 76 },
+  { k: "Price and making charges", v: 35 },
+  { k: "Celebrity ads", v: 12 },
+];
+
 function Card1() {
   return (
     <>
@@ -34,7 +41,7 @@ function Card1() {
       <p className="font-inter text-xs text-[#8a8a8a]">Describe the one specific business question you need answered.</p>
       <div className="mt-5 font-inter text-[10px] uppercase tracking-[0.1em] text-[#cfcfcf]">Your business question <span className="text-[#F39019]">*</span></div>
       <div className="mt-2 rounded-xl border border-white/[0.12] bg-white/[0.03] px-4 py-3.5 font-inter text-[13px] leading-[1.6] text-[#e5e5e5]">
-        Which buyers in [city] are choosing lab-grown over natural this Dhanteras, and at what ticket size?
+        Which of my buyers are open to lab-grown over natural, and at what ticket size?
         <span className="ml-0.5 inline-block h-3.5 w-px bg-[#F39019] align-[-2px]" />
       </div>
       <div className="mt-5 font-inter text-[10px] uppercase tracking-[0.1em] text-[#cfcfcf]">Project scope (optional)</div>
@@ -104,7 +111,7 @@ function Card3() {
         <span className="inline-flex items-center gap-1.5 font-inter text-[11px] text-[#cfcfcf]"><span className="h-1.5 w-1.5 rounded-full bg-[#3fd17a]" />Live collection</span>
       </div>
       <h4 className={`mb-1 mt-3.5 ${hd}`}>Responses coming in</h4>
-      <div className="mt-2.5 flex justify-between font-inter text-[11px] text-[#8a8a8a]"><span>Verified responses</span><span className="text-white">[n] of [N]</span></div>
+      <div className="mt-2.5 flex justify-between font-inter text-[11px] text-[#8a8a8a]"><span>Verified responses</span><span className="text-white">Checked as they arrive</span></div>
       <div className="mt-2 h-1 overflow-hidden rounded bg-white/[0.08]"><div className="h-full w-[62%] rounded bg-[#F39019]" /></div>
       <div className="mt-[18px] flex flex-col gap-2">
         {stepFeed.map((r, i) => (
@@ -138,19 +145,19 @@ function Card4() {
         ))}
       </div>
       <div className="mt-5 flex flex-1 flex-col rounded-[14px] border border-white/10 bg-[#0a0a0a]/70 p-4">
-        <div className="flex justify-between font-inter text-[11px]"><span className="text-[#cfcfcf]">Lab-grown switch intent by ticket band</span><span className="text-[#737373]">[category]</span></div>
+        <div className="flex justify-between font-inter text-[11px]"><span className="text-[#cfcfcf]">What buyers weigh when choosing a jeweller</span><span className="text-[#737373]">Free study</span></div>
         <div className="mt-3.5 flex flex-col gap-3">
-          {JEWELLERY_BANDS.map((n) => (
-            <div key={n} className="grid grid-cols-[120px_1fr_36px] items-center gap-2.5 font-inter text-[11px]">
-              <span className="text-[#a3a3a3]">{n}</span>
-              <span className="h-2 rounded border border-dashed border-[#F39019]/50 bg-[#F39019]/[0.08]" />
-              <span className="text-right text-white">[x]%</span>
+          {WEIGHED.map((w) => (
+            <div key={w.k} className="grid grid-cols-[120px_1fr_36px] items-center gap-2.5 font-inter text-[11px]">
+              <span className="text-[#a3a3a3]">{w.k}</span>
+              <span className="h-2 rounded bg-white/[0.06]"><span className="block h-full rounded bg-[#F39019]" style={{ width: `${w.v}%` }} /></span>
+              <span className="text-right text-white">{w.v}%</span>
             </div>
           ))}
         </div>
         <div className="mt-auto flex items-center gap-2 pt-3 font-inter text-[11px] text-[#a3a3a3]">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#F39019" strokeWidth="1.6" aria-hidden="true"><path d="M2.5 7.5l3 3 6-7" /></svg>
-          Reviewed by a jewellery market expert
+          Reviewed by a market expert
         </div>
       </div>
     </>
@@ -164,8 +171,8 @@ function Card5() {
         <span className={pill}>Step 5 of 5</span>
         <span className="font-inter text-[11px] text-[#8a8a8a]">Delivered in 3–7 days</span>
       </div>
-      <h4 className={`mb-0.5 mt-3.5 ${hd}`}>Dhanteras buyer report</h4>
-      <p className="font-inter text-xs text-[#8a8a8a]">[Brand] · [category] · [cities]</p>
+      <h4 className={`mb-0.5 mt-3.5 ${hd}`}>Your buyer report</h4>
+      <p className="font-inter text-xs text-[#8a8a8a]">Your brand · your category · your cities</p>
       <div className="mt-[18px] grid flex-1 grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-3">
         <div className="rounded-[14px] border border-white/10 bg-white/[0.02] p-3.5">
           <div className="font-inter text-[10px] uppercase tracking-[0.1em] text-[#F39019]">Key findings</div>
@@ -289,9 +296,10 @@ export function JewelleryHowItWorks() {
           padding: pinned ? "72px 24px 24px" : "40px 20px 80px",
         }}
       >
-        <h2 id="how-it-works-title" className="mb-10 text-center font-plusJakartaSans text-[clamp(34px,4vw,50px)] font-normal tracking-[-0.03em]">
-          How it Works
+        <h2 id="how-it-works-title" className="mb-10 text-center font-plusJakartaSans text-[clamp(28px,3.4vw,42px)] text-balance font-normal tracking-[-0.03em]">
+          {jewelleryStepsIntro.headline}
         </h2>
+        <p className="mx-auto -mt-6 mb-10 max-w-2xl text-center font-inter text-base leading-7 text-[#a3a3a3]">{jewelleryStepsIntro.body}</p>
         <div
           className="relative mx-auto flex w-full max-w-[1240px] flex-col gap-20"
           style={{ height: pinned ? STAGE : "auto" }}

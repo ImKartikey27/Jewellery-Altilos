@@ -8,6 +8,7 @@ import { prisma } from "@/lib/prisma"
 export type LeadMagnetSubmissionInput = {
   email: string
   companyName?: string
+  category?: string
   source?: string
 }
 
@@ -26,21 +27,21 @@ export async function submitLeadMagnet(
   }
 
   const name = null
-  const { email, companyName, source } = validation
+  const { email, companyName, category, source } = validation
 
   const lead = await prisma.lead.upsert({
     where: { email },
     update: {
       name,
       companyName,
-      payload: { email, name, companyName, source },
+      payload: { email, name, companyName, category, source },
     },
     create: {
       email,
       name,
       companyName,
       source,
-      payload: { email, name, companyName, source },
+      payload: { email, name, companyName, category, source },
     },
   })
 
