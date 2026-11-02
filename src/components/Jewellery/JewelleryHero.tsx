@@ -31,7 +31,7 @@ export function JewelleryHero() {
             <span className="h-1.5 w-1.5 rounded-full bg-[#F39019]" aria-hidden="true" />
             <span><strong className="text-white">2,625</strong> verified buyers · <strong className="text-white">180</strong> cities and towns · <strong className="text-white">32</strong> states</span>
           </div>
-          <a href="#snapshot" className={`mt-9 ${CTA}`}>Get the free study <span className="text-base">→</span></a>
+          <a href="#email-gate" className={`mt-9 ${CTA}`}>Get the free study <span className="text-base">→</span></a>
           <p className="mt-[18px] font-inter text-sm text-[#e5e5e5]">Free. No pitch. No card details.</p>
         </div>
 

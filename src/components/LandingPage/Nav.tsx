@@ -57,7 +57,7 @@ export function Nav() {
           className="inline-flex font-inter text-[14px] h-9 shrink-0 items-center justify-center rounded-[18px] border border-[#fb861c] bg-[#f97316] px-5 text-sm  text-white shadow-[0_4px_15px_rgba(251,134,28,0.25)] transition hover:bg-[#fb861c] focus:outline-none focus:ring-4 focus:ring-[#f97316]/25"
           to="email-gate"
         >
-          Get Free report
+          Get the free study
         </ScrollLink>
       </div>
     </header>

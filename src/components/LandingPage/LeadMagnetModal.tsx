@@ -6,6 +6,7 @@ import { useFormStatus } from "react-dom";
 import { FaArrowRight } from "react-icons/fa";
 import { FiX } from "react-icons/fi";
 
+import { LEAD_CATEGORIES } from "@/lib/lead-magnet-validation";
 import {
   submitLeadMagnetAction,
   type LeadMagnetActionState,
@@ -14,7 +15,6 @@ import {
 type LeadMagnetModalProps = {
   open: boolean;
   defaultEmail: string;
-  category?: string;
   onClose: () => void;
   onSuccess?: (state: LeadMagnetActionState) => void;
 };
@@ -24,7 +24,6 @@ const initialState: LeadMagnetActionState = { status: "idle" };
 export function LeadMagnetModal({
   open,
   defaultEmail,
-  category = "",
   onClose,
   onSuccess,
 }: LeadMagnetModalProps) {
@@ -120,7 +119,6 @@ export function LeadMagnetModal({
         </header>
 
         <form action={formAction} className="px-6 pb-0 pt-6">
-          <input type="hidden" name="category" value={category} />
           {errorMessage && (
             <p
               className="mb-6 text-sm text-[#fb861c]"
@@ -158,6 +156,24 @@ export function LeadMagnetModal({
                 placeholder="Your brand"
                 className="mt-3 h-[49px] w-full rounded-lg border border-[#574236CC] bg-[#1F1F1F] px-4 font-inter text-base text-white outline-none transition placeholder:text-[#3C3C3C] focus:border-[#f97316] focus:ring-4 focus:ring-[#f97316]/20"
               />
+            </label>
+
+            <label className="block">
+              <span className="font-poppins text-sm font-medium tracking-wide text-[#DEC1B0]">
+                Your category (optional)
+              </span>
+              <select
+                name="category"
+                defaultValue=""
+                className="mt-3 h-[49px] w-full rounded-lg border border-[#574236CC] bg-[#1F1F1F] px-4 font-inter text-base text-white outline-none transition focus:border-[#f97316] focus:ring-4 focus:ring-[#f97316]/20"
+              >
+                <option value="">Select a category</option>
+                {LEAD_CATEGORIES.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
             </label>
           </div>
 
