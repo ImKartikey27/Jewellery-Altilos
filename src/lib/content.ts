@@ -97,14 +97,13 @@ export const partnerLogos: PartnerLogo[] = [
   { name: "Pepsi", image: "/images/logos/pepsi.png" },
 ];
 
-// Steps 1-4 are the jewellery visuals. Step 5 (the sample report) is still the old image until the
-// jewellery report page is delivered.
+// The five jewellery step visuals (2000x1333, 3:2).
 const STEP_IMAGES = [
   "/steps/jewellery-1.webp",
   "/steps/jewellery-2.webp",
   "/steps/jewellery-3.webp",
   "/steps/jewellery-4.webp",
-  "/steps/5.png",
+  "/steps/jewellery-5.webp",
 ];
 
 // Derived from the jewellery page copy so JSON-LD and llms.txt can never describe
