@@ -136,11 +136,11 @@ export async function sendLeadMagnetEmail({
   return resendSend({
     from: resendFrom(),
     to: [toEmail],
-    subject: "Your Altilos market report is here",
+    subject: "Your India Jewellery Consumer Landscape Study is here",
     text: [
       greeting,
-      "Thank you for your interest in Altilos, your free market report is attached.",
-      "Inside is a snapshot of how consumers in your category are behaving right now, shared directly by them.",
+      "Thank you for your interest in Altilos, the India Jewellery Consumer Landscape Study 2026 is attached.",
+      "Inside is first-hand evidence from 2,625 verified jewellery buyers in 180 cities and towns, shared directly by them.",
       "The national picture is yours to keep; and if you would like to see the version built around your own brand, your cities, and your consumers, we're here to assist.",
       "Any questions, or want to go deeper?",
       "Just hit reply, a member of our team will get in touch.",
@@ -148,8 +148,8 @@ export async function sendLeadMagnetEmail({
     ].join("\n\n"),
     html: [
       `<p>Hello${toName ? ` ${escapeHtml(toName)}` : ""},</p>`,
-      `<p>Thank you for your interest in Altilos, your free market report is attached.</p>`,
-      `<p>Inside is a snapshot of how consumers in your category are behaving right now, shared directly by them.</p>`,
+      `<p>Thank you for your interest in Altilos, the India Jewellery Consumer Landscape Study 2026 is attached.</p>`,
+      `<p>Inside is first-hand evidence from 2,625 verified jewellery buyers in 180 cities and towns, shared directly by them.</p>`,
       `<p>The national picture is yours to keep; and if you would like to see the version built around your own brand, your cities, and your consumers, we're here to assist.</p>`,
       `<p>Any questions, or want to go deeper?<br>Just hit reply, a member of our team will get in touch.</p>`,
       `<p>Best,<br>The Altilos team</p>`,
