@@ -39,18 +39,21 @@ export function JewelleryHero() {
 
       {/* Photo: in flow below the copy on mobile, anchored bottom-right on desktop and sized by height so it can
           never outgrow the band. The stat card overlaps its lower edge. */}
-      <div className="relative mt-6 h-[340px] w-full overflow-hidden sm:h-[440px] lg:absolute lg:-right-10 lg:bottom-0 lg:mt-0 lg:aspect-[1756/896] lg:h-[80%] lg:w-auto">
+      <div className="relative mt-6 h-[340px] w-full overflow-hidden sm:h-[440px] lg:absolute lg:-right-10 lg:bottom-0 lg:mt-0 lg:aspect-[1344/672] lg:h-[80%] lg:w-auto">
         <Image
-          src="/images/hero/jewellery-hero.webp"
-          alt="A smiling Indian woman wearing lab-grown diamond earrings, rings, a pendant and a bracelet, lit by an orange glow"
-          width={1756}
-          height={896}
+          src="/images/hero/jewellery-hero-v2.webp"
+          alt="A smiling Indian woman touching her diamond pendant, also wearing diamond stud earrings, a ring and a tennis bracelet, lit by a warm orange glow"
+          width={1344}
+          height={672}
           loading="eager"
           fetchPriority="high"
           sizes="(min-width: 1024px) 1440px, 100vw"
-          className="absolute left-1/2 h-full w-auto max-w-none -translate-x-[64%] lg:relative lg:left-auto lg:w-full lg:translate-x-0 lg:object-cover"
+          className="absolute left-1/2 h-full w-auto max-w-none -translate-x-[58%] lg:relative lg:left-auto lg:w-full lg:translate-x-0 lg:object-cover"
         />
         <div aria-hidden="true" className={`pointer-events-none absolute inset-x-0 bottom-0 h-[40%] lg:hidden ${FADE}`} />
+        {/* The portrait has no black margin at the top or left, so dissolve both edges into the page. */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-[22%] bg-[linear-gradient(to_bottom,#000_0%,rgba(0,0,0,0.6)_45%,transparent_100%)]" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 hidden w-[24%] bg-[linear-gradient(to_right,#000_0%,rgba(0,0,0,0.6)_45%,transparent_100%)] lg:block" />
       </div>
       <div aria-hidden="true" className={`pointer-events-none absolute inset-x-0 bottom-0 hidden h-[16%] lg:block ${FADE}`} />
 
