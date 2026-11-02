@@ -1,8 +1,18 @@
 import { isValidEmail } from "./email-validation"
 
+export const LEAD_CATEGORIES = [
+  "Fine jewellery",
+  "Silver",
+  "Lab-grown",
+  "Diamond",
+  "Gold coins and bars",
+  "Other",
+] as const
+
 export type LeadMagnetValidationInput = {
   email: string
   companyName?: string
+  category?: string
   source?: string
 }
 
@@ -11,6 +21,7 @@ export type LeadMagnetValidationResult =
       status: "valid"
       email: string
       companyName: string
+      category: string | null
       source: string
     }
   | { status: "invalid_email" }
@@ -33,6 +44,9 @@ export function validateLeadMagnetSubmissionInput(
     status: "valid",
     email,
     companyName,
+    category: (LEAD_CATEGORIES as readonly string[]).includes(input.category ?? "")
+      ? (input.category as string)
+      : null,
     source: input.source?.trim() || "email-gate",
   }
 }

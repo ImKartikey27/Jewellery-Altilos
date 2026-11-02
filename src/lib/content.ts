@@ -1,5 +1,6 @@
 import { formatMinor } from "./money.ts";
 import type { SectionId } from "./section-anchors.ts";
+import { jewelleryFaqs, jewellerySteps } from "./jewellery/content.ts";
 import { PLAN_PRICING, type PlanKey } from "./plans.ts";
 
 export type NavLink = {
@@ -112,38 +113,14 @@ export const partnerLogos: PartnerLogo[] = [
   { name: "Pepsi", image: "/images/logos/pepsi.png" },
 ];
 
-export const steps: Step[] = [
-  {
-    eyebrow: "Step 01",
-    title: "Tell us what you need to know",
-    body: "A pricing decision before you scale. A new market you are not sure about. A competitor eating into your share and you do not know why. Whatever the business challenge, you bring it to us in plain language.",
-    image: "/steps/1.png",
-  },
-  {
-    eyebrow: "Step 02",
-    title: "We build your consumer audience",
-    body: "We take your challenge and configure the exact audience to answer it. The right consumers, in the right cities, matched to the right demographic and behavioural profile.",
-    image: "/steps/2.png",
-  },
-  {
-    eyebrow: "Step 03",
-    title: "Consumption behaviour collected exclusively",
-    body: "Verified category buyers share actual consumption behaviour in real time, across the exact cities and pin-codes you target. Zero-party signals from people who actually buy your products. No stale databases. No assumptions dressed up as data.",
-    image: "/steps/3.png",
-  },
-  {
-    eyebrow: "Step 04",
-    title: "Industry experience & proprietary AI do the rest",
-    body: "Every signal runs through Altilos's Decision Intelligence system and is reviewed by a market expert before it reaches you. Patterns surface. Noise is removed.",
-    image: "/steps/4.png",
-  },
-  {
-    eyebrow: "Step 05",
-    title: "You execute",
-    body: "Your report arrives in 3 to 7 days. Analyst-edited, specific to your challenge, with clear recommendations you can act on immediately. The decisions you were unsure about, you now make with conviction.",
-    image: "/steps/5.png",
-  },
-];
+// Derived from the jewellery page copy so JSON-LD and llms.txt can never describe
+// something other than what the page shows.
+export const steps: Step[] = jewellerySteps.map((step, index) => ({
+  eyebrow: `Step 0${index + 1}`,
+  title: step.title,
+  body: step.body,
+  image: `/steps/${index + 1}.png`,
+}));
 
 // Prices are derived from PLAN_PRICING so the cards, the JSON-LD offers and the
 // amount written to the Order row can never drift apart.
@@ -156,8 +133,8 @@ export const pricingPlans: PricingPlan[] = [
     key: "pulse",
     name: "Pulse",
     price: planPrice("pulse"),
-    responsesNote: "50 responses · self-serve",
-    summary: "Rapid validation. Self-serve.",
+    responsesNote: "50 consumers",
+    summary: "A fast read on one question before you commit spend.",
     features: [
       { label: "50 verified responses", marker: "check" },
       { label: "Single city", marker: "check" },
@@ -180,8 +157,8 @@ export const pricingPlans: PricingPlan[] = [
     name: "Core",
     price: planPrice("core"),
     badge: "Most popular",
-    responsesNote: "200 responses",
-    summary: "Decision-grade",
+    responsesNote: "200 consumers",
+    summary: "Validate a collection, claim or price point with your target buyer.",
     features: [
       { label: "200 verified responses", marker: "check" },
       { label: "Up to 2 cities", marker: "check" },
@@ -203,8 +180,8 @@ export const pricingPlans: PricingPlan[] = [
     name: "Core+",
     price: planPrice("core+"),
     badge: "Best value",
-    responsesNote: "350 responses",
-    summary: "Strategic clarity",
+    responsesNote: "350 consumers",
+    summary: "A competitive read across cities and segments.",
     featuresPrefix: "Everything in Core, plus:",
     features: [
       { label: "350 verified responses", marker: "check" },
@@ -226,8 +203,8 @@ export const pricingPlans: PricingPlan[] = [
     name: "Expert",
     price: planPrice("expert"),
     badge: "Full depth",
-    responsesNote: "750 responses · priority",
-    summary: "The power to act",
+    responsesNote: "750 consumers",
+    summary: "The full landscape plus targeted offers to competitor users.",
     featuresPrefix: "Everything in Core+, plus:",
     features: [
       { label: "750 verified responses", marker: "check" },
@@ -246,50 +223,10 @@ export const pricingPlans: PricingPlan[] = [
   },
 ];
 
-export const faqs: Faq[] = [
-  {
-    question:
-      "Do you cover Indian skincare specifically, including sub-categories like serums, sunscreen, and men's grooming?",
-    answer:
-      "Yes. Altilos has active consumer coverage across skincare sub-categories including face wash, serums, sunscreen, moisturisers, men's grooming, and more. Your questions can be targeted to buyers of any specific sub-category or SKU type.",
-  },
-  {
-    question:
-      "Can I get research for Tier 2 and Tier 3 Indian cities, not just Metro?",
-    answer:
-      "Yes, and this is where Altilos is most differentiated. Consumer behaviour in Jaipur, Lucknow, and Coimbatore is materially different from Mumbai and Bangalore. Our panel covers Tier 1, Tier 2, and Tier 3 cities, and every finding can be cut by location (at the pin-code level) so you are not making national decisions on Metro data.",
-  },
-  {
-    question:
-      "How is Altilos different from Mintel, Kantar, or any other traditional research agency?",
-    answer:
-      "Traditional agencies take 6 to 12 weeks and price for enterprise budgets. Altilos delivers in 3 to 7 days from as low as ₹8,000. The data is zero-party, collected directly from verified consumers, not recycled panels or third-party surveys. You get direct consumer signals, not aggregated category reports that were written for someone else's question.",
-  },
-  {
-    question: "What does zero-party data mean and why does it matter?",
-    answer:
-      "Zero-party data is information consumers share directly and intentionally. No inference, no tracking, no synthetic proxies. When an Altilos respondent answers your question, they are doing so as a real person in your target market who chose to participate. It is the most accurate signal available, and it cannot be replicated from desk research or platform analytics. Zero template fluff, and zero bias.",
-  },
-  {
-    question: "What does the report actually look like?",
-    answer:
-      "An analyst-edited PDF with clear findings, supporting data, charts, and specific recommendations. Not a data dump. Pulse delivers a 1-page AI-generated summary. Core and above deliver a 5-page analyst-edited report with Q&A access.",
-    cta: {
-      label: "See a real sample report",
-      to: "email-gate",
-    },
-  },
-  {
-    question: "How quickly can you start once I brief you?",
-    answer:
-      "Configuration begins within 24 hours of receiving your brief and targeting approval. Data collection typically runs 2 to 4 days. Report delivery follows within 1 to 2 days of collection completion. Total turnaround is 3 to 7 days from brief.",
-  },
-  {
-    question: "Is this relevant if we are early stage or pre-Series A?",
-    answer:
-      "Yes. Pulse at ₹8,000 is designed for exactly this. Up to five questions, 50 real consumers, one city, delivered in days. It is the validation study you run before spending commitments, not after. Brands at Seed and Series A use it to de-risk pricing decisions, channel choices, and new SKU launches.",
-  },
-];
+export const faqs: Faq[] = jewelleryFaqs.map((faq) => ({
+  question: faq.question,
+  answer: faq.answer,
+}));
 
 export const confirmationCards: ConfirmationCard[] = [
   {

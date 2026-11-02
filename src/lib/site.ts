@@ -70,14 +70,14 @@ export const GOOGLE_SITE_VERIFICATION =
 
 // Front-loads both head terms inside the first 45 characters, where the click
 // weight is. 54 chars total, under the ~60 Google renders.
-export const SITE_TITLE = "Consumer Research for Indian Jewellery Brands | Altilos";
+export const SITE_TITLE = "India Jewellery Consumer Research Study 2026 | Altilos";
 export const TITLE_TEMPLATE = "%s | Altilos";
 
 // Four hard, quotable specifics — "zero-party", "Tier 1-3", "3-7 days",
 // "₹8,000" — so an answer engine can lift this verbatim instead of paraphrasing
 // it away. ASCII hyphens so nothing depends on font glyph coverage.
 export const SITE_DESCRIPTION =
-  "Zero-party consumer research for Indian jewellery brands. Verified buyers across Tier 1-3 cities, analyst-edited reports in 3-7 days, from ₹8,000.";
+  "Free zero-party study of 2,625 verified Indian jewellery buyers across 180 cities. Custom studies for your brand in 3-7 days, from ₹8,000.";
 
 // Read at module evaluation, which on a prerendered page means build time. The
 // honest trade: it cannot go stale within a deploy, and goes stale only if the

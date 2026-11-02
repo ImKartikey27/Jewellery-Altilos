@@ -18,6 +18,7 @@ describe("lead magnet validation", () => {
         status: "valid",
         email: "analyst@enterprise.com",
         companyName: "Altilos Labs",
+        category: null,
         source: "email-gate",
       }
     );

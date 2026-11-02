@@ -14,7 +14,15 @@ export function JewelleryFaq() {
               <h3 className="font-inter">{f.question}</h3>
               <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#fff" strokeWidth="1.6" className="flex-none transition-transform duration-200 group-open:rotate-180"><path d="M3 6l5 5 5-5" /></svg>
             </summary>
-            <p className="pb-6 pr-10 font-inter text-base leading-[1.75] text-[#a3a3a3]">{f.answer}</p>
+            <p className="pb-6 pr-10 font-inter text-base leading-[1.75] text-[#a3a3a3]">
+              {f.answer}
+              {f.cta && (
+                <>
+                  {" "}
+                  <a href={f.cta.href} className="text-[#F39019] underline-offset-4 hover:underline">{f.cta.label}</a>.
+                </>
+              )}
+            </p>
           </details>
         ))}
       </div>

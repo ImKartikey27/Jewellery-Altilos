@@ -84,7 +84,7 @@ const ORG_KNOWS_ABOUT = [
   "Zero-party consumer data",
   "Tier 2 and Tier 3 city consumer behaviour in India",
   "Pin-code level consumer insight in India",
-  "Jewellery pricing research",
+  "Lab-grown diamond consumer research in India",
   "Competitor benchmarking for jewellery brands",
   "Custom consumer panel studies in India",
 ];
@@ -244,12 +244,6 @@ function faqNode(): JsonLdNode {
     isPartOf: ref(WEBSITE_ID),
     about: ref(SERVICE_ID),
     inLanguage: CONTENT_LANGUAGE,
-    // Truthful: the third FAQ names both agencies. This is what lets a
-    // "Mintel alternative in India" prompt resolve to Altilos.
-    mentions: [
-      { "@type": "Organization", name: "Mintel" },
-      { "@type": "Organization", name: "Kantar" },
-    ],
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,

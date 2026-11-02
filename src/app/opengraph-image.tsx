@@ -12,7 +12,7 @@ import { PLAN_PRICING } from "@/lib/plans";
 // the one WhatsApp shows — which is why it is worth generating properly.
 
 export const alt =
-  "Altilos - zero-party consumer research for Indian jewellery brands, delivered in 3 to 7 days";
+  "Altilos - free zero-party study of 2,625 Indian jewellery buyers; custom studies in 3 to 7 days";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -68,7 +68,7 @@ export default function Image() {
               letterSpacing: 4,
             }}
           >
-            CONSUMER RESEARCH FOR INDIAN JEWELLERY BRANDS
+            INDIA JEWELLERY CONSUMER STUDY 2026
           </div>
           <div
             style={{

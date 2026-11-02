@@ -1,22 +1,19 @@
 "use client";
 
 import { markReturnToPlans } from "@/lib/return-to-plans";
-import { jewelleryPlans } from "@/lib/jewellery/content";
+import { jewelleryPlans, jewelleryStudyQuestions } from "@/lib/jewellery/content";
 
 export function JewelleryPricing() {
   return (
     <section id="plans" className="scroll-mt-24 px-6 pb-20 pt-[120px]" aria-labelledby="plans-title">
       <div className="mx-auto max-w-[1280px]">
         <h2 id="plans-title" className="max-w-[960px] font-plusJakartaSans text-[clamp(30px,3.4vw,44px)] font-normal leading-[1.2] tracking-[-0.03em] text-balance">
-          Get a <strong className="font-bold">free snapshot</strong> of <strong className="font-bold">real buyer behaviour</strong> in{" "}
-          <strong className="font-bold">your category</strong>. No pitch. No card details
+          Want the study cut to your <strong className="font-bold">brand</strong>, your <strong className="font-bold">competitors</strong> and your{" "}
+          <strong className="font-bold">cities</strong>?
         </h2>
         <p className="mt-7 max-w-[640px] font-poppins text-base leading-normal text-[#a3a3a3]">
-          Start with a rapid report, then scale into deeper market coverage as your team moves from curiosity to conviction.
+          Pick your depth. Each study is one-time, built from your target consumers and your named competitors.
         </p>
-        <a href="#snapshot" className="mt-10 inline-flex items-center gap-3.5 rounded-full bg-[#F39019] px-[30px] py-[19px] font-inter text-sm font-semibold uppercase tracking-[0.12em] text-white hover:bg-[#FFA033]">
-          Get it before Dhanteras <span className="text-base">→</span>
-        </a>
 
         <div className="mt-14 grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] items-start gap-7">
           {jewelleryPlans.map((p) => (
@@ -61,6 +58,19 @@ export function JewelleryPricing() {
           ))}
         </div>
         <p className="mt-10 font-inter text-sm text-[#8a8a8a]"><span className="text-[#F39019]">★</span> marks the headline value each tier unlocks over the one below.</p>
+
+        <div className="mt-16">
+          <h3 className="font-plusJakartaSans text-2xl text-white">Questions a study answers</h3>
+          <ul className="mt-5 grid gap-x-10 gap-y-3 md:grid-cols-2">
+            {jewelleryStudyQuestions.map((q) => (
+              <li key={q} className="flex items-start gap-3 font-inter text-[15px] leading-6 text-[#cfcfcf]">
+                <span aria-hidden="true" className="mt-0.5 text-[#F39019]">◆</span>
+                {q}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-8 font-inter text-base font-semibold text-white">Configure your study in minutes. Decision-ready insights in days, not quarters.</p>
+        </div>
       </div>
     </section>
   );
