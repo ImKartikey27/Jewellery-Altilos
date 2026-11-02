@@ -21,7 +21,6 @@ export const JEWELLERY_SEGMENTS: Record<string, { cat: string }> = {
 
 export const jewelleryNavLinks = [
   { label: "How it works", href: "#how-it-works" },
-  { label: "What\u2019s inside", href: "#whats-inside" },
   { label: "Plans", href: "#plans" },
   { label: "FAQs", href: "#faqs" },
 ];
@@ -32,14 +31,13 @@ export const jewelleryMetrics = [
   { label: "Zero-party", value: "100%", body: "First-hand. None scraped or modelled." },
 ];
 
-export const jewelleryTrustStrip = [
-  "Verified buyers",
-  "Zero-party",
-  "Photo-verified",
-  "Pin-code level",
-  "180 cities and towns",
-  "32 states",
-  "Tier 1, 2 and 3 India",
+export const jewelleryLogos = [
+  { name: "Pampers", image: "/images/logos/pampers.png" },
+  { name: "Pepsi", image: "/images/logos/pepsi.png" },
+  { name: "Airbnb", image: "/images/logos/airbnb.png" },
+  { name: "Baskin Robbins", image: "/images/logos/br.svg" },
+  { name: "inDrive", image: "/images/logos/indrive.png" },
+  { name: "Nivea", image: "/images/logos/nivea.png" },
 ];
 
 export const jewelleryHeroCard = {
@@ -52,35 +50,12 @@ export const jewelleryHeroCard = {
   footer: "Altilos zero-party study, n=2,625",
 };
 
-export const jewelleryInsights = [
-  {
-    eyebrow: "The competitive landscape",
-    stat: "77% and 76%",
-    headline: "Jewellers are chosen on heritage and relationship, not price.",
-    body: "77% name brand heritage and 76% name their jeweller relationship as a top-three factor. Price and making charges: 35%. Celebrity ads: 12%.",
-    forYourBrand: "Your buyer shops at a national chain and a family jeweller (85% do both). The brands that grow know which trust signal tipped the last purchase.",
-  },
-  {
-    eyebrow: "The online ceiling",
-    stat: "50.2%",
-    headline: "Half cap a single online purchase at \u20B910,000.",
-    body: "55.9% spend over \u20B950,000 in store. 77.2% can\u2019t assess quality or purity online, and 88.6% say certification of authenticity would make them buy.",
-    forYourBrand: "The fix is evidence, not faster delivery. AR try-on ranks near the bottom (32.0%).",
-  },
-  {
-    eyebrow: "The most winnable lab-grown buyer",
-    stat: "48%",
-    headline: "Nearly half say \u201Cmaybe\u201D to lab-grown over natural.",
-    body: "Only 16% give a firm yes. 74.6% cite low resale value as the barrier, in a market where 86% see jewellery as wealth. Everyday wear (43.5%) and gifting (34.2%) are where the maybes would start.",
-    forYourBrand: "The maybe is the most winnable customer in the category.",
-  },
-  {
-    eyebrow: "The next buyer",
-    stat: "70.9% vs 33.6%",
-    headline: "Gen Z changes what they buy, not where they buy it.",
-    body: "70.9% of Gen Z prefer minimalist design, against 33.6% of older buyers. Yet only 28.0% of Gen Z put an online channel in their top three, against 31.7% of older buyers.",
-    forYourBrand: "Same stores, same trust signals, a different product. Know which pieces and price points convert them before you redesign a collection.",
-  },
+// The four findings of the free study, shown inside step 4 (patterns) and step 5 (report).
+export const stepPatterns = [
+  { stat: "77% · 76%", label: "Choose a jeweller on heritage and relationship, not price (35%)" },
+  { stat: "50.2%", label: "Cap a single online purchase at \u20B910,000" },
+  { stat: "48%", label: "Say \u201Cmaybe\u201D to lab-grown over natural; 16% a firm yes" },
+  { stat: "70.9% vs 33.6%", label: "Gen Z vs older buyers preferring minimalist design" },
 ];
 
 export const jewelleryProofBand = {
@@ -88,14 +63,6 @@ export const jewelleryProofBand = {
   body: "2,625 verified consumers across Tier 1 (32%), Tier 2 (44%) and Tier 3 (23%) cities. Subgroup gaps tested at p<0.05. Margin of error \u00B11.9 points. Collected first-hand in May 2026. No scraped reviews. No modelled estimates.",
   note: "The sample skews female (78%) and young (48% Gen Z), so findings best represent the mass and mass-premium buyer. A commissioned study sets quotas to your exact target.",
 };
-
-export const jewelleryStudyQuestions = [
-  "Which chain\u2019s or family jeweller\u2019s customers will switch to you, and what proof moves them? (Competitive)",
-  "Does your lightweight or lab-grown line hold up against what they wear today? (Validation)",
-  "What ticket size will your buyer commit online before needing a store visit, by city tier? (Pricing)",
-  "Which brands and pieces are actually in their jewellery box, verified by photo? (Shelf proof)",
-  "Which guarantee or buyback offer converts a browser into a first online purchase? (Conversion)",
-];
 
 export const jewellerySteps = [
   {
@@ -162,14 +129,14 @@ export const stepPipeline = [
   { k: "Expert", v: "Reviewed", hi: true },
 ];
 export const stepFindings = [
-  "Who is open to lab-grown, and what holds them back",
-  "The ticket size they commit to, in store and online",
-  "Which trust signals tip the purchase",
+  "Jewellers are chosen on heritage and relationship, not price",
+  "Half cap a single online purchase at \u20B910,000",
+  "Nearly half say \u201Cmaybe\u201D to lab-grown over natural",
 ];
 export const stepActions = [
-  "Price your category at the band your buyer commits to",
-  "Lead with the proof your buyer asks for",
-  "Back the pieces and cities that convert",
+  "Know which trust signal tipped the last purchase",
+  "Back online listings with evidence, not faster delivery",
+  "Win the maybe: the most winnable lab-grown buyer",
 ];
 
 type Mark = "c" | "s" | "d"; // check · star (headline value) · dash (excluded)
@@ -192,7 +159,7 @@ export type JewelleryPlan = {
 
 export const jewelleryPlans: JewelleryPlan[] = [
   {
-    key: "pulse", name: "Pulse", price: "₹8,000", resp: "50 responses · self-serve", tag: "Rapid validation. Self-serve.",
+    key: "pulse", name: "Pulse", price: "₹8,000", resp: "50 consumers", tag: "A fast read on one question before you commit spend.",
     cta: "Start with Pulse →", footT: "AI reads your consumers", footD: "A fast, self-serve gut-check on one question.",
     feats: [F("50 verified responses"), F("Single city"), F("Age & gender targeting"), F("Up to 5 questions"), F("1 competitor mapped"), F("AI 1-page summary"), F("Analyst report", "d"), F("Expert call", "d"), F("Under 7-day delivery")],
   },
@@ -221,4 +188,5 @@ export const jewelleryFaqs: { question: string; answer: string; cta?: { label: s
   { question: "Is the study right for my brand?", answer: "It best represents mass and mass-premium buyers. If you sell to affluent bridal buyers aged 25 to 35 in Tier 1 and Tier 2, a commissioned study sets quotas to exactly that group." },
   { question: "What does a custom study cost and how long does it take?", answer: "Pulse starts at \u20B98,000 for 50 consumers. Core is \u20B940,000 (200), Core+ is \u20B91,00,000 (350), Expert is \u20B92,00,000 (750). Reports arrive in 3 to 7 days.", cta: { label: "See the plans", href: "#plans" } },
   { question: "Is it really free?", answer: "Yes. No pitch, no card details. We ask for a work email so we can send it." },
+  { question: "What questions can a study answer?", answer: "Which chain\u2019s or family jeweller\u2019s customers will switch to you, and what proof moves them. Whether your lightweight or lab-grown line holds up against what they wear today. What ticket size your buyer will commit online before needing a store visit, by city tier. Which brands and pieces are actually in their jewellery box, verified by photo. Which guarantee or buyback offer converts a browser into a first online purchase." },
 ];

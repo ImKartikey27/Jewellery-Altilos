@@ -4,7 +4,6 @@ import { JewelleryFaq } from "@/components/Jewellery/JewelleryFaq";
 import { JewelleryFooter } from "@/components/Jewellery/JewelleryFooter";
 import { JewelleryHero } from "@/components/Jewellery/JewelleryHero";
 import { JewelleryClosing } from "@/components/Jewellery/JewelleryClosing";
-import { JewelleryInside } from "@/components/Jewellery/JewelleryInside";
 import { JewelleryProof } from "@/components/Jewellery/JewelleryProof";
 import { JewelleryHowItWorks } from "@/components/Jewellery/JewelleryHowItWorks";
 import { JewelleryLogos } from "@/components/Jewellery/JewelleryLogos";
@@ -33,7 +32,6 @@ export default async function Home({ searchParams }: Props) {
         <JewelleryNav />
         <JewelleryHero />
         <JewelleryLogos />
-        <JewelleryInside />
         <JewelleryProof />
         <JewelleryHowItWorks />
         <JewellerySnapshot segment={segment} />

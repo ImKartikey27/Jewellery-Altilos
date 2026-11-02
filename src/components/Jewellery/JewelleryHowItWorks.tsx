@@ -10,6 +10,7 @@ import {
   stepAudience,
   stepFeed,
   stepFindings,
+  stepPatterns,
   stepPipeline,
   stepScope,
 } from "@/lib/jewellery/content";
@@ -25,13 +26,6 @@ const N = jewellerySteps.length;
 const pill = "rounded-full border border-[#F39019] px-[9px] py-[3px] font-inter text-[9px] uppercase tracking-[0.14em] text-[#F39019]";
 const cardBase = "flex flex-col overflow-hidden rounded-[32px] border border-white/20 p-7";
 const hd = "font-plusJakartaSans text-[22px] font-medium";
-
-const WEIGHED = [
-  { k: "Brand heritage", v: 77 },
-  { k: "Jeweller relationship", v: 76 },
-  { k: "Price and making charges", v: 35 },
-  { k: "Celebrity ads", v: 12 },
-];
 
 function Card1() {
   return (
@@ -122,6 +116,15 @@ function Card3() {
           </div>
         ))}
       </div>
+      <div className="mt-4">
+        <div className="flex justify-between font-inter text-[11px] text-[#8a8a8a]"><span>Where buyers sit</span><span className="text-white">180 cities · 32 states</span></div>
+        <div className="mt-2 flex h-2 overflow-hidden rounded bg-white/[0.08]">
+          <span className="h-full bg-[#F39019]" style={{ width: "32%" }} />
+          <span className="h-full bg-[#F39019]/60" style={{ width: "44%" }} />
+          <span className="h-full bg-[#F39019]/30" style={{ width: "23%" }} />
+        </div>
+        <div className="mt-1.5 flex justify-between font-inter text-[10px] text-[#a3a3a3]"><span>Tier 1 · 32%</span><span>Tier 2 · 44%</span><span>Tier 3 · 23%</span></div>
+      </div>
       <div className="mt-auto flex flex-wrap gap-2 pt-3.5 font-inter text-[10px] text-[#a3a3a3]">
         {["Zero-party", "Pin-code level", "Verified category buyers"].map((t) => (
           <span key={t} className="rounded-full border border-white/10 px-2.5 py-1">{t}</span>
@@ -145,13 +148,12 @@ function Card4() {
         ))}
       </div>
       <div className="mt-5 flex flex-1 flex-col rounded-[14px] border border-white/10 bg-[#0a0a0a]/70 p-4">
-        <div className="flex justify-between font-inter text-[11px]"><span className="text-[#cfcfcf]">What buyers weigh when choosing a jeweller</span><span className="text-[#737373]">Free study</span></div>
-        <div className="mt-3.5 flex flex-col gap-3">
-          {WEIGHED.map((w) => (
-            <div key={w.k} className="grid grid-cols-[120px_1fr_36px] items-center gap-2.5 font-inter text-[11px]">
-              <span className="text-[#a3a3a3]">{w.k}</span>
-              <span className="h-2 rounded bg-white/[0.06]"><span className="block h-full rounded bg-[#F39019]" style={{ width: `${w.v}%` }} /></span>
-              <span className="text-right text-white">{w.v}%</span>
+        <div className="flex justify-between font-inter text-[11px]"><span className="text-[#cfcfcf]">Patterns that surfaced</span><span className="text-[#737373]">n=2,625</span></div>
+        <div className="mt-3.5 flex flex-col gap-2.5">
+          {stepPatterns.map((p) => (
+            <div key={p.stat} className="grid grid-cols-[104px_1fr] items-center gap-3 rounded-[10px] border border-white/[0.08] bg-white/[0.02] px-3 py-2.5 font-inter">
+              <span className="font-plusJakartaSans text-[15px] font-semibold leading-tight text-[#F39019]">{p.stat}</span>
+              <span className="text-[11px] leading-[1.45] text-[#cfcfcf]">{p.label}</span>
             </div>
           ))}
         </div>
