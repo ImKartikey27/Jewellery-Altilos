@@ -38,7 +38,7 @@ export function JewelleryHero() {
       </div>
 
       {/* Photo: in flow below the copy on mobile, anchored bottom-right on desktop and sized by height so it can
-          never outgrow the band. The stat card overlaps its lower edge. */}
+          never outgrow the band. The stat strip sits below it. */}
       <div className="relative mt-6 h-[340px] w-full overflow-hidden sm:h-[440px] lg:absolute lg:-right-10 lg:bottom-0 lg:mt-0 lg:aspect-[1344/672] lg:h-[80%] lg:w-auto">
         <Image
           src="/images/hero/jewellery-hero-v2.webp"
