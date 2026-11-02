@@ -97,13 +97,23 @@ export const partnerLogos: PartnerLogo[] = [
   { name: "Pepsi", image: "/images/logos/pepsi.png" },
 ];
 
+// Steps 1-4 are the jewellery visuals. Step 5 (the sample report) is still the old image until the
+// jewellery report page is delivered.
+const STEP_IMAGES = [
+  "/steps/jewellery-1.webp",
+  "/steps/jewellery-2.webp",
+  "/steps/jewellery-3.webp",
+  "/steps/jewellery-4.webp",
+  "/steps/5.png",
+];
+
 // Derived from the jewellery page copy so JSON-LD and llms.txt can never describe
 // something other than what the page shows.
 export const steps: Step[] = jewellerySteps.map((step, index) => ({
   eyebrow: `Step 0${index + 1}`,
   title: step.title,
   body: step.body,
-  image: `/steps/${index + 1}.png`,
+  image: STEP_IMAGES[index],
 }));
 
 // Prices are derived from PLAN_PRICING so the cards, the JSON-LD offers and the
