@@ -8,10 +8,11 @@ export const jewelleryNavLinks = [
   { label: "FAQs", href: "#faqs" },
 ];
 
+// The same three value-adds as the skincare page.
 export const jewelleryMetrics = [
-  { label: "Verified jewellery buyers", value: "2,625", body: "Every one a real buyer, checked before they answered." },
-  { label: "Behavioural signals", value: "21", body: "Per buyer, from channel to lab-grown intent." },
-  { label: "Zero-party", value: "100%", body: "First-hand. None scraped or modelled." },
+  { label: "Decision Velocity", value: "6x Faster", body: "Decisions that used to take months\nenabled in days." },
+  { label: "Research Spend", value: "90% Savings", body: "Versus traditional research agencies." },
+  { label: "Intelligence", value: "100% Actionable", body: "No data dumps.\nOnly intelligence that moves the needle." },
 ];
 
 export const jewellerySteps = [
@@ -27,7 +28,7 @@ export const jewellerySteps = [
   },
   {
     eyebrow: "STEP 03",
-    title: "Verified buyers answer",
+    title: "Verified consumers share their buying preferences",
     body: "Real jewellery buyers share what they actually buy, in the cities and pin-codes you target. Zero-party signals, not stale databases.",
   },
   {
