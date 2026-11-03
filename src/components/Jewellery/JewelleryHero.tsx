@@ -15,20 +15,20 @@ export function JewelleryHero() {
       <div className="mx-auto max-w-[1600px] lg:flex lg:min-h-[clamp(680px,84vh,820px)] lg:items-center">
         <div className="relative z-10 px-6 text-center lg:w-[56%] lg:px-0">
           <div className="mx-auto flex max-w-[640px] flex-col items-center">
-            <h1 id="hero-title" className="font-inter text-[13px] font-medium uppercase tracking-[0.32em] text-[#F39019]">
-              India jewellery consumer landscape study 2026
+            <h1 id="hero-title" className="font-inter text-[12px] font-medium uppercase tracking-[0.2em] text-[#F39019] text-balance">
+              Real-time market intelligence for Indian D2C jewellery brands
             </h1>
-            <p className="mt-8 font-plusJakartaSans text-[clamp(34px,4.4vw,54px)] font-bold leading-[1.12] tracking-[-0.03em] text-balance lg:mt-10">
-              Jewellery is bought on <span className="text-[#F39019]">trust</span>. We asked 2,625 buyers what earns it.
+            <p className="mt-8 font-plusJakartaSans text-[clamp(30px,3.7vw,46px)] font-bold leading-[1.15] tracking-[-0.03em] text-balance lg:mt-10">
+              Understand <span className="text-[#F39019]">changing needs</span> of the Indian consumer with{" "}
+              <span className="text-[#F39019]">verified actionable insights</span>
             </p>
-            <p className="mt-7 max-w-[600px] font-inter text-base leading-[1.75] text-[#e5e5e5]">
-              The free study for Indian jewellery brands. First-hand evidence from verified buyers in 180 cities and towns: why the family jeweller still wins,
-              what holds back online and lab-grown, and what Gen Z actually wants on the counter.
+            <p className="mt-7 max-w-[600px] font-inter text-base leading-[1.9] text-[#e5e5e5]">
+              <span className="font-bold">5 million+</span> verified category <span className="font-bold">consumers</span>.{" "}
+              <span className="font-bold">Proprietary</span> AI analysis, <span className="font-bold">validated</span> by{" "}
+              <span className="font-bold">industry</span> experts. <br className="hidden lg:block" />
+              <span className="font-bold">Decision-ready</span> reports in <span className="font-bold">under 7 days</span>, from{" "}
+              <span className="font-bold">₹8,000</span>.
             </p>
-            <div className="mt-7 inline-flex items-center gap-2.5 rounded-full border border-white/15 px-4 py-2 font-inter text-[13px] text-[#d4d4d4]">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#F39019]" aria-hidden="true" />
-              <span><strong className="text-white">2,625</strong> verified buyers · <strong className="text-white">180</strong> cities and towns · <strong className="text-white">32</strong> states</span>
-            </div>
             <a href="#email-gate" className={`mt-9 ${CTA}`}>Get the free study <span className="text-base">→</span></a>
             <p className="mt-[18px] font-inter text-sm text-[#e5e5e5]">Free. No pitch. No card details.</p>
           </div>

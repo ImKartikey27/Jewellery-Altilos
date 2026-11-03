@@ -71,15 +71,10 @@ export function EmailGate() {
             id="email-gate-title"
             className="text-3xl sm:text-4xl  font-plusJakartaSans leading-[39px] text-white"
           >
-           Get the India Jewellery Consumer Landscape Study 2026.
+           Want the study cut to your brand, your competitors and your cities?
           </h2>
           <p className="mt-4 max-w-[456px]  font-inter text-base leading-[26px] text-white">
-            Six pages. 2,625 buyers. Every chart, every cut by generation and
-            age band, and the methodology behind them. Free. No pitch. No card
-            details.
-          </p>
-          <p className="mt-3 font-inter text-sm font-semibold text-[#F97316]">
-            2,625 verified buyers across 180 cities and towns
+            Enter your preferred email to begin the onboarding process.
           </p>
         </div>
 
@@ -87,7 +82,7 @@ export function EmailGate() {
           <div className="flex flex-col gap-3 sm:flex-row sm:gap-3">
             <div className="min-w-0 flex-1">
               <label className="sr-only" htmlFor={inputId}>
-                Work email
+                Preferred email
               </label>
               <input
                 id={inputId}
@@ -110,7 +105,7 @@ export function EmailGate() {
               type="submit"
               className="group inline-flex h-[55px] items-center justify-center gap-3 rounded-full bg-[#f97316] border-2 border-[#f97316] px-7 text-sm font-semibold uppercase tracking-[0.08em] text-white transition-colors duration-200 hover:bg-black focus:outline-none focus:ring-4 focus:ring-[#f97316]/30"
             >
-              <span className="font-inter">Send me the study</span>
+              <span className="font-inter">Submit</span>
               <FaArrowRight className="group-hover:-rotate-45 w-4 " />
             </button>
           </div>
